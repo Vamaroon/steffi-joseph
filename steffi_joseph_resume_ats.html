@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Steffi Joseph — Senior Instructional Designer</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Calibri', 'Segoe UI', Arial, sans-serif;
+      font-size: 10.5pt;
+      color: #1a1a1a;
+      background: white;
+      line-height: 1.5;
+    }
+
+    .page {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 2.2rem 2.5rem;
+      background: white;
+    }
+
+    /* HEADER */
+    .header {
+      text-align: center;
+      border-bottom: 2px solid #1a2a4a;
+      padding-bottom: 0.9rem;
+      margin-bottom: 1rem;
+    }
+    .header h1 {
+      font-size: 22pt;
+      font-weight: 700;
+      color: #1a2a4a;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+    .header .title {
+      font-size: 11pt;
+      color: #2563eb;
+      font-weight: 600;
+      margin: 0.2rem 0 0.5rem;
+    }
+    .header .contact {
+      font-size: 9.5pt;
+      color: #444;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.3rem 1rem;
+    }
+    .header .contact a { color: #444; text-decoration: none; }
+
+    /* SECTION */
+    .section { margin-bottom: 1.1rem; }
+
+    .section-title {
+      font-size: 10.5pt;
+      font-weight: 700;
+      color: #1a2a4a;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border-bottom: 1.5px solid #1a2a4a;
+      padding-bottom: 0.2rem;
+      margin-bottom: 0.55rem;
+    }
+
+    /* SUMMARY */
+    .summary p {
+      font-size: 10pt;
+      color: #222;
+      line-height: 1.6;
+    }
+
+    /* ACHIEVEMENTS */
+    ul.achievements {
+      list-style: none;
+      padding: 0;
+    }
+    ul.achievements li {
+      font-size: 10pt;
+      padding-left: 1.1rem;
+      position: relative;
+      margin-bottom: 0.3rem;
+      line-height: 1.55;
+      color: #222;
+    }
+    ul.achievements li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: #2563eb;
+      font-weight: 700;
+    }
+
+    /* COMPETENCIES */
+    .comp-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem 0.6rem;
+    }
+    .comp-item {
+      font-size: 9.5pt;
+      color: #1a2a4a;
+      background: #f0f4ff;
+      border: 1px solid #c7d7f9;
+      padding: 0.15rem 0.55rem;
+      border-radius: 3px;
+    }
+
+    /* SKILLS TABLE */
+    .skills-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 9.5pt;
+    }
+    .skills-table td {
+      padding: 0.25rem 0.5rem;
+      vertical-align: top;
+      border: 1px solid #e2e8f0;
+    }
+    .skills-table td:first-child {
+      font-weight: 700;
+      color: #1a2a4a;
+      width: 28%;
+      background: #f8fafc;
+      white-space: nowrap;
+    }
+    .skills-table td:last-child {
+      color: #333;
+    }
+
+    /* JOB */
+    .job { margin-bottom: 1.1rem; }
+    .job-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 0.2rem;
+      margin-bottom: 0.1rem;
+    }
+    .job-title {
+      font-size: 10.5pt;
+      font-weight: 700;
+      color: #1a2a4a;
+    }
+    .job-period {
+      font-size: 9.5pt;
+      color: #555;
+      font-style: italic;
+    }
+    .job-company {
+      font-size: 10pt;
+      color: #2563eb;
+      font-weight: 600;
+      margin-bottom: 0.1rem;
+    }
+    .job-contract {
+      font-size: 9pt;
+      color: #777;
+      font-style: italic;
+      margin-bottom: 0.4rem;
+    }
+    ul.bullets {
+      list-style: none;
+      padding: 0;
+    }
+    ul.bullets li {
+      font-size: 10pt;
+      padding-left: 1.1rem;
+      position: relative;
+      margin-bottom: 0.25rem;
+      line-height: 1.55;
+      color: #222;
+    }
+    ul.bullets li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: #2563eb;
+      font-weight: 700;
+    }
+
+    /* CERTS */
+    ul.certs {
+      list-style: none;
+      padding: 0;
+    }
+    ul.certs li {
+      font-size: 10pt;
+      padding-left: 1.1rem;
+      position: relative;
+      margin-bottom: 0.25rem;
+      color: #222;
+    }
+    ul.certs li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: #2563eb;
+      font-weight: 700;
+    }
+
+    /* EDUCATION */
+    .edu-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 10pt;
+    }
+    .edu-row .degree { font-weight: 700; color: #1a2a4a; }
+    .edu-row .school { color: #444; }
+
+    /* AWARD */
+    .award {
+      font-size: 10pt;
+      color: #222;
+      padding-left: 1.1rem;
+      position: relative;
+    }
+    .award::before {
+      content: '🏅';
+      position: absolute;
+      left: 0;
+    }
+
+    /* PRINT */
+    @media print {
+      body { font-size: 10pt; }
+      .page { padding: 1.2rem 1.5rem; max-width: 100%; }
+      .no-print { display: none; }
+    }
+
+    /* PRINT BUTTON */
+    .print-btn-bar {
+      background: #f8fafc;
+      border-bottom: 1px solid #e2e8f0;
+      padding: 0.6rem 2rem;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 1rem;
+      font-size: 0.85rem;
+      color: #64748b;
+    }
+    .print-btn-bar button {
+      background: #1a2a4a;
+      color: white;
+      border: none;
+      padding: 0.45rem 1.2rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+    .print-btn-bar button:hover { background: #2563eb; }
+    @media print {
+      .print-btn-bar { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="print-btn-bar no-print">
+  <span>Ready to save? Click the button →</span>
+  <button onclick="printResume()">⬇ Save as PDF</button>
+</div>
+
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <h1>Steffi Joseph</h1>
+    <div class="title">Senior Instructional Designer | Learning &amp; Development Strategist</div>
+    <div class="contact">
+      <span>Kalyan, Maharashtra, India</span>
+      <span>|</span>
+      <a href="tel:+917506606201">+91 7506606201</a>
+      <span>|</span>
+      <a href="mailto:steffiscorpion77@gmail.com">steffiscorpion77@gmail.com</a>
+      <span>|</span>
+      <a href="https://linkedin.com/in/steffi-joseph-a09576146">linkedin.com/in/steffi-joseph-a09576146</a>
+    </div>
+  </div>
+
+  <!-- PROFESSIONAL SUMMARY -->
+  <div class="section summary">
+    <div class="section-title">Professional Summary</div>
+    <p>
+      Senior Instructional Designer and Learning &amp; Development leader with 12+ years of professional experience, including 9+ years specialising in instructional design and building scalable learning ecosystems in healthcare SaaS and corporate environments. Expertise in instructional design frameworks (ADDIE, SAM), microlearning, ILT/vILT, eLearning development, and AI-driven content automation. Proven track record managing LMS platforms, leading cross-functional initiatives with Product, Support, and Enablement teams, and aligning learning strategy with business outcomes and go-to-market readiness. Skilled in WCAG accessibility, learning analytics, Kirkpatrick evaluation, curriculum development, and customer education to measure training effectiveness and ROI.
+    </p>
+  </div>
+
+  <!-- KEY ACHIEVEMENTS -->
+  <div class="section">
+    <div class="section-title">Key Achievements</div>
+    <ul class="achievements">
+      <li>Reduced manual content audit effort by <strong>40%+</strong> by designing and implementing AI-driven automation workflows using Claude (Anthropic) and Confluence API</li>
+      <li>Governed and optimized a <strong>330+ article knowledge base</strong> aligned with product release cycles, improving content quality and consistency across 100+ video assets</li>
+      <li>Developed <strong>60+ eLearning courses</strong> and 50+ storyboards, achieving a <strong>30%+ improvement</strong> in learner engagement and training scalability</li>
+      <li>Established LMS content audit processes and content governance frameworks to align training with business priorities and product updates</li>
+      <li>Led Pendo pilot strategy including WCAG accessibility review, style guide development, and in-app guidance use case identification</li>
+      <li>Received <strong>Innovation Luminary Award</strong> — Rayden Interactive (2023–2024) for high-impact eLearning innovation and measurable learner engagement improvements</li>
+    </ul>
+  </div>
+
+  <!-- CORE COMPETENCIES -->
+  <div class="section">
+    <div class="section-title">Core Competencies</div>
+    <div class="comp-grid">
+      <span class="comp-item">Instructional Design (ADDIE, SAM)</span>
+      <span class="comp-item">Learning Experience Design (LXD)</span>
+      <span class="comp-item">eLearning Development</span>
+      <span class="comp-item">Microlearning</span>
+      <span class="comp-item">Mobile Learning</span>
+      <span class="comp-item">ILT &amp; vILT Facilitation</span>
+      <span class="comp-item">Curriculum Development</span>
+      <span class="comp-item">Training Needs Analysis</span>
+      <span class="comp-item">Learning Objectives Design</span>
+      <span class="comp-item">Storyboarding</span>
+      <span class="comp-item">Rapid Authoring</span>
+      <span class="comp-item">Blended Learning</span>
+      <span class="comp-item">Customer Education</span>
+      <span class="comp-item">Product Enablement</span>
+      <span class="comp-item">Go-to-Market Enablement</span>
+      <span class="comp-item">Content Governance</span>
+      <span class="comp-item">Knowledge Management</span>
+      <span class="comp-item">Content Strategy</span>
+      <span class="comp-item">LMS Administration</span>
+      <span class="comp-item">Learning Analytics</span>
+      <span class="comp-item">Kirkpatrick Evaluation</span>
+      <span class="comp-item">WCAG Accessibility</span>
+      <span class="comp-item">Adult Learning Principles</span>
+      <span class="comp-item">Stakeholder Management</span>
+      <span class="comp-item">Project Management</span>
+      <span class="comp-item">Change Management</span>
+      <span class="comp-item">Team Leadership</span>
+      <span class="comp-item">Performance Consulting</span>
+      <span class="comp-item">New User Onboarding</span>
+      <span class="comp-item">SCORM / xAPI</span>
+      <span class="comp-item">AI-Driven Content Automation</span>
+      <span class="comp-item">Learning ROI</span>
+    </div>
+  </div>
+
+  <!-- TECHNICAL SKILLS -->
+  <div class="section">
+    <div class="section-title">Technical Skills</div>
+    <table class="skills-table">
+      <tr>
+        <td>eLearning &amp; Content Tools</td>
+        <td>Articulate Storyline, Rise 360, Camtasia, Vyond, Powtoon, Adobe Premiere Pro, After Effects, Adobe Animate, SnagIt</td>
+      </tr>
+      <tr>
+        <td>LMS Platforms</td>
+        <td>Skilljar, LearnUpon, Cornerstone, Workday</td>
+      </tr>
+      <tr>
+        <td>Knowledge &amp; Project Tools</td>
+        <td>Confluence, Jira, Monday.com</td>
+      </tr>
+      <tr>
+        <td>Design &amp; Storyboarding</td>
+        <td>PowerPoint, Microsoft Word, Scribe</td>
+      </tr>
+      <tr>
+        <td>In-App Guidance</td>
+        <td>Pendo</td>
+      </tr>
+      <tr>
+        <td>AI &amp; Automation</td>
+        <td>Claude (Anthropic), ChatGPT, Confluence API, Workflow Automation</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- PROFESSIONAL EXPERIENCE -->
+  <div class="section">
+    <div class="section-title">Professional Experience</div>
+
+    <div class="job">
+      <div class="job-header">
+        <span class="job-title">Senior Instructional Designer</span>
+        <span class="job-period">Apr 2024 – Present</span>
+      </div>
+      <div class="job-company">Phreesia &nbsp;|&nbsp; Healthcare SaaS</div>
+      <div class="job-contract">Contracted via Rayden Interactive &nbsp;|&nbsp; Remote</div>
+      <ul class="bullets">
+        <li>Directed a cross-functional team of content developers to manage and deliver 100+ video assets, overseeing assignments, level of effort (LOE) tracking, and end-to-end delivery timelines</li>
+        <li>Owned learning strategy, content governance, and training needs analysis for a 330+ article knowledge base, driving measurable improvements in content quality and consistency</li>
+        <li>Designed and piloted an AI-driven automation workflow using Claude (Anthropic) and Confluence API to cross-reference release notes against knowledge base articles, reducing manual content audit effort by 40%+</li>
+        <li>Developed and delivered blended learning programs — including eLearning, microlearning, and ILT/vILT — across Support, Product, and Enablement functions, contributing to increased training adoption and knowledge retention</li>
+        <li>Spearheaded Pendo pilot strategy encompassing WCAG accessibility review, style guide development, content governance framework, and in-app guidance use case identification for customer education</li>
+        <li>Collaborated with Product Managers to drive beta documentation and training readiness ahead of feature releases, ensuring aligned go-to-market enablement</li>
+        <li>Managed end-to-end content migration from Skilljar to Vimeo, standardizing upload procedures and authoring team-wide documentation in Confluence</li>
+        <li>Designed and implemented scalable content audit frameworks aligned with product release cycles, ensuring training assets remained current and learner-relevant</li>
+        <li>Managed a direct report to build and scale a micro-video learning pipeline, enhancing new user onboarding and delivering just-in-time learning experiences</li>
+        <li>Oversaw project intake, prioritization, and delivery timelines using Jira and Monday.com, maintaining SLA adherence across concurrent workstreams</li>
+        <li>Built and maintained a master LMS content inventory serving as the single source of truth for training asset status, ownership, and prioritization</li>
+        <li>Designed and maintained a dynamic backlog tracker to improve delivery visibility and enable data-driven stakeholder reporting</li>
+        <li>Partnered with Learning Solutions and L&amp;D teams to benchmark content formats, delivery methodologies, and AI-driven automation strategies across the organization</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <span class="job-title">Senior Instructional Designer</span>
+        <span class="job-period">Nov 2021 – Apr 2024</span>
+      </div>
+      <div class="job-company">Rayden Interactive</div>
+      <ul class="bullets">
+        <li>Led design and development of 60+ eLearning courses and 50+ storyboards using Articulate Storyline, Camtasia, and Vyond, achieving a 30%+ improvement in learner engagement</li>
+        <li>Designed accessible, scenario-based, and microlearning solutions aligned with WCAG accessibility standards and adult learning principles</li>
+        <li>Conducted training needs analysis and collaborated with SMEs to design targeted learning solutions with measurable learning objectives</li>
+        <li>Developed two interactive eLearning modules on patient engagement using drag-and-drop activities and scenario-based learning for Phreesia's internal teams (PAM Project, 2023)</li>
+        <li>Mentored and onboarded instructional designers, improving team productivity and quality standards</li>
+        <li>Established organization-wide design standards and style guides for consistency across all client deliverables</li>
+        <li>Applied Kirkpatrick evaluation model to assess training effectiveness, measure learning ROI, and drive continuous course improvement</li>
+        <li>Managed full project lifecycle from discovery to delivery across multiple clients, maintaining timelines and quality standards</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <span class="job-title">Instructional Designer &amp; Corporate Trainer</span>
+        <span class="job-period">Jul 2017 – Dec 2021</span>
+      </div>
+      <div class="job-company">HERE Technologies Pvt. Ltd. &nbsp;|&nbsp; Airoli, Maharashtra</div>
+      <ul class="bullets">
+        <li>Designed and delivered blended learning programs including eLearning, microlearning, video-based training, and ILT/vILT sessions</li>
+        <li>Applied ADDIE instructional design framework to develop training across compliance, product knowledge, and leadership development</li>
+        <li>Collaborated with SMEs to align training needs analysis with business goals and develop targeted learning experiences</li>
+        <li>Facilitated leadership development programs focused on communication, public speaking, and professional skills</li>
+        <li>Delivered internal training on instructional design tools and best practices including Camtasia, Articulate Storyline, and SnagIt</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- EARLY CAREER -->
+  <div class="section">
+    <div class="section-title">Early Career</div>
+
+    <div class="job">
+      <div class="job-header">
+        <span class="job-title">E-Commerce Executive</span>
+        <span class="job-period">Mar 2017 – May 2017</span>
+      </div>
+      <div class="job-company">Commerce Pundit &nbsp;|&nbsp; Ghansoli, Maharashtra</div>
+      <ul class="bullets">
+        <li>Managed product listings, inventory, and reporting on Walmart's e-commerce platform</li>
+        <li>Coordinated with vendors to manage order fulfilment and ensure timely deliveries</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <span class="job-title">PPC &amp; Digital Marketing Specialist</span>
+        <span class="job-period">Apr 2016 – Mar 2017</span>
+      </div>
+      <div class="job-company">eTouch Pvt. Ltd. &nbsp;|&nbsp; Thane, Maharashtra</div>
+      <ul class="bullets">
+        <li>Managed and optimized Google Ads PPC campaigns, including keyword research and YouTube ad creation</li>
+        <li>Trained new team members on paid search best practices and managed day-to-day campaign tasks</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- EDUCATION -->
+  <div class="section">
+    <div class="section-title">Education</div>
+    <div class="edu-row">
+      <span><span class="degree">Bachelor of Arts in Literature</span> &nbsp;|&nbsp; <span class="school">University of Mumbai</span></span>
+      <span style="color:#555; font-size:9.5pt;">GPA: 70%</span>
+    </div>
+  </div>
+
+  <!-- CERTIFICATIONS -->
+  <div class="section">
+    <div class="section-title">Certifications</div>
+    <ul class="certs">
+      <li><strong>Designing Accessible Learning Content (DALC)</strong> — eLaHub Ltd &nbsp;|&nbsp; March 2024</li>
+      <li><strong>Camtasia Certified Professional</strong> — TechSmith &nbsp;|&nbsp; 2024–2026</li>
+      <li><strong>Gamification for Employee Productivity</strong> — Pete Genkins &nbsp;|&nbsp; June 2021</li>
+    </ul>
+  </div>
+
+  <!-- AWARDS -->
+  <div class="section">
+    <div class="section-title">Awards &amp; Recognition</div>
+    <div class="award">
+      <strong>Innovation Luminary Award</strong> — Rayden Interactive (2023–2024). Recognised for creating innovative, high-impact eLearning projects that drove measurable improvements in learner engagement and knowledge retention across client programmes.
+    </div>
+  </div>
+
+</div>
+
+<script>
+  function printResume() {
+    const original = document.title;
+    document.title = '';
+    window.print();
+    setTimeout(() => { document.title = original; }, 1000);
+  }
+</script>
+</body>
+</html>
