@@ -187,8 +187,8 @@
   <a class="logo" href="#">Steffi <span>Joseph</span></a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
-    <li><a href="#profile">Experience</a></li>
-    <li><a href="#profile">Skills</a></li>
+    <li><a href="#tab-exp">Experience</a></li>
+    <li><a href="#skills">Skills</a></li>
     <li><a href="#ai">AI Skills</a></li>
     <li><a href="Steffi_Joseph_Resume.pdf" download="Steffi_Joseph_Resume.pdf" class="nav-cta">⬇ Resume</a></li>
   </ul>
@@ -264,15 +264,9 @@
       <h2 class="section-heading">Professional Profile</h2>
     </div>
 
-    <div class="tab-row">
-      <button class="tab-btn active" onclick="switchTab('exp',this)">💼 Experience</button>
-      <button class="tab-btn" onclick="switchTab('ach',this)">🏆 Achievements</button>
-      <button class="tab-btn" onclick="switchTab('skills',this)">🧠 Skills</button>
-      <button class="tab-btn" onclick="switchTab('certs',this)">🎓 Education &amp; Certs</button>
-    </div>
+    <div class="section-label reveal">💼 Experience</div>
 
-    <!-- EXPERIENCE -->
-    <div class="tab-panel active" id="tab-exp">
+    <div id="tab-exp" style="margin-bottom:3.5rem;">
       <div class="timeline">
 
         <div class="job reveal">
@@ -365,7 +359,8 @@
     </div>
 
     <!-- ACHIEVEMENTS -->
-    <div class="tab-panel" id="tab-ach">
+    <div style="margin-bottom:3.5rem;" id="achievements">
+    <div class="section-label reveal">🏆 Achievements</div>
       <div class="ach-grid">
         <div class="ach-card reveal"><div class="ach-num">40%+</div><div class="ach-text">Reduction in manual content audit effort via AI-driven automation using Claude and Confluence API</div></div>
         <div class="ach-card reveal"><div class="ach-num">30%+</div><div class="ach-text">Improvement in learner engagement across 60+ eLearning courses developed</div></div>
@@ -377,7 +372,8 @@
     </div>
 
     <!-- SKILLS -->
-    <div class="tab-panel" id="tab-skills">
+    <div style="margin-bottom:3.5rem;" id="skills">
+    <div class="section-label reveal">🧠 Skills</div>
       <div class="skill-title reveal">Core Competencies</div>
       <div class="comp-wrap reveal">
         <span class="comp-tag">Instructional Design (ADDIE, SAM)</span>
@@ -424,7 +420,8 @@
     </div>
 
     <!-- CERTS -->
-    <div class="tab-panel" id="tab-certs">
+    <div style="margin-bottom:2rem;" id="certs">
+    <div class="section-label reveal">🎓 Education &amp; Certifications</div>
       <div class="cert-grid">
         <div class="cert-card reveal"><div class="cert-ico">🎓</div><div><h4>Bachelor of Arts in Literature</h4><p>University of Mumbai · GPA: 70%</p></div></div>
         <div class="cert-card reveal"><div class="cert-ico">♿</div><div><h4>Designing Accessible Learning Content (DALC)</h4><p>eLaHub Ltd · March 2024</p></div></div>
@@ -506,14 +503,6 @@
 </footer>
 
 <script>
-  // Tab switching
-  function switchTab(name, btn) {
-    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
-    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-    document.getElementById('tab-' + name).classList.add('active');
-    btn.classList.add('active');
-  }
-
   // Scroll reveal
   const obs = new IntersectionObserver(entries => {
     entries.forEach((e, i) => {
