@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Steffi Joseph | Senior Instructional Designer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;}
+    :root{
+      --navy:#1a2e4a;
+      --blue:#2563eb;
+      --blue-light:#eff6ff;
+      --teal:#0891b2;
+      --teal-light:#ecfeff;
+      --dark:#0f172a;
+      --body:#334155;
+      --gray:#64748b;
+      --border:#e2e8f0;
+      --bg:#f8fafc;
+      --white:#ffffff;
+    }
+    html{scroll-behavior:smooth;scroll-padding-top:68px;}
+    body{font-family:'DM Sans',sans-serif;color:var(--body);background:var(--white);line-height:1.65;font-size:15px;}
+
+    /* SCROLLBAR */
+    ::-webkit-scrollbar{width:5px;}
+    ::-webkit-scrollbar-thumb{background:var(--blue);border-radius:3px;}
+
+    /* NAV */
+    nav{position:fixed;top:0;left:0;right:0;z-index:999;height:68px;background:rgba(255,255,255,0.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;}
+    .logo{font-family:'DM Serif Display',serif;font-size:1.3rem;color:var(--navy);text-decoration:none;letter-spacing:-.2px;}
+    .logo span{color:var(--blue);}
+    .nav-links{list-style:none;display:flex;gap:2rem;align-items:center;}
+    .nav-links a{color:var(--gray);text-decoration:none;font-size:.875rem;font-weight:500;transition:color .2s;}
+    .nav-links a:hover{color:var(--navy);}
+    .nav-cta{background:var(--navy);color:var(--white) !important;padding:.45rem 1.2rem;border-radius:8px;font-weight:600 !important;transition:background .2s !important;}
+    .nav-cta:hover{background:var(--blue) !important;}
+
+    /* HERO */
+    .hero{padding:7rem 2.5rem 5rem;background:var(--white);border-bottom:1px solid var(--border);}
+    .hero-inner{max-width:1050px;margin:0 auto;display:grid;grid-template-columns:1fr 380px;gap:5rem;align-items:center;}
+    .hero-eyebrow{display:inline-flex;align-items:center;gap:.5rem;background:var(--teal-light);color:var(--teal);border:1px solid #a5f3fc;padding:.3rem .9rem;border-radius:20px;font-size:.75rem;font-weight:600;letter-spacing:.5px;text-transform:uppercase;margin-bottom:1.2rem;}
+    .dot{width:7px;height:7px;border-radius:50%;background:var(--teal);animation:blink 2s infinite;}
+    @keyframes blink{0%,100%{opacity:1;}50%{opacity:.3;}}
+    .hero h1{font-family:'DM Serif Display',serif;font-size:3.2rem;color:var(--dark);line-height:1.15;margin-bottom:.75rem;letter-spacing:-.5px;}
+    .hero h1 em{color:var(--blue);font-style:normal;}
+    .hero-sub{font-size:1rem;color:var(--gray);margin-bottom:1.75rem;max-width:520px;line-height:1.7;}
+    .hero-contact{display:flex;flex-wrap:wrap;gap:.6rem 1.2rem;margin-bottom:2rem;}
+    .hero-contact a{color:var(--gray);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem;transition:color .2s;}
+    .hero-contact a:hover{color:var(--navy);}
+    .hero-btns{display:flex;gap:.75rem;flex-wrap:wrap;}
+    .btn-primary{background:var(--navy);color:#fff;padding:.7rem 1.6rem;border-radius:9px;text-decoration:none;font-weight:600;font-size:.875rem;transition:all .2s;display:inline-flex;align-items:center;gap:.4rem;}
+    .btn-primary:hover{background:var(--blue);transform:translateY(-1px);box-shadow:0 6px 20px rgba(37,99,235,.25);}
+    .btn-secondary{background:var(--white);color:var(--navy);padding:.7rem 1.6rem;border-radius:9px;text-decoration:none;font-weight:600;font-size:.875rem;border:1.5px solid var(--border);transition:all .2s;display:inline-flex;align-items:center;gap:.4rem;}
+    .btn-secondary:hover{border-color:var(--navy);transform:translateY(-1px);}
+
+    /* HERO SIDEBAR */
+    .hero-sidebar{display:flex;flex-direction:column;gap:.9rem;}
+    .info-card{background:var(--bg);border:1px solid var(--border);border-radius:14px;padding:1.1rem 1.3rem;transition:all .25s;}
+    .info-card:hover{border-color:#bfdbfe;box-shadow:0 4px 20px rgba(37,99,235,.08);}
+    .info-card .label{font-size:.7rem;text-transform:uppercase;letter-spacing:1px;color:var(--gray);font-weight:600;margin-bottom:.3rem;}
+    .info-card .value{font-size:1.5rem;font-family:'DM Serif Display',serif;color:var(--dark);line-height:1;}
+    .info-card .value span{font-size:.85rem;font-family:'DM Sans',sans-serif;color:var(--blue);font-weight:600;}
+    .info-card .sub{font-size:.78rem;color:var(--gray);margin-top:.2rem;}
+    .info-row{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;}
+
+    /* STATS */
+    .stats-bar{background:var(--navy);padding:1.25rem 2.5rem;display:flex;justify-content:center;gap:0;flex-wrap:wrap;}
+    .stat{text-align:center;padding:.4rem 2.5rem;border-right:1px solid rgba(255,255,255,.1);}
+    .stat:last-child{border-right:none;}
+    .stat .num{font-family:'DM Serif Display',serif;font-size:1.7rem;color:#fff;line-height:1;}
+    .stat .num em{color:#67e8f9;font-style:normal;}
+    .stat .lbl{font-size:.7rem;color:#94a3b8;margin-top:.15rem;text-transform:uppercase;letter-spacing:.5px;}
+
+    /* SECTIONS */
+    .section{padding:4.5rem 2.5rem;}
+    .section.alt{background:var(--bg);}
+    .section.dark{background:var(--navy);}
+    .wrap{max-width:1050px;margin:0 auto;}
+
+    /* SECTION HEADER */
+    .section-label{font-size:.72rem;text-transform:uppercase;letter-spacing:2px;color:var(--blue);font-weight:700;margin-bottom:.4rem;}
+    .section-label.inv{color:#67e8f9;}
+    .section-heading{font-family:'DM Serif Display',serif;font-size:1.9rem;color:var(--dark);margin-bottom:2rem;line-height:1.2;}
+    .section-heading.inv{color:#fff;}
+
+    /* TABS */
+    .tab-row{display:flex;gap:0;border-bottom:2px solid var(--border);margin-bottom:2.5rem;overflow-x:auto;}
+    .tab-btn{padding:.65rem 1.4rem;font-size:.875rem;font-weight:600;cursor:pointer;border:none;background:transparent;color:var(--gray);white-space:nowrap;border-bottom:2px solid transparent;margin-bottom:-2px;transition:all .2s;font-family:'DM Sans',sans-serif;}
+    .tab-btn:hover{color:var(--navy);}
+    .tab-btn.active{color:var(--blue);border-bottom-color:var(--blue);}
+    .tab-panel{display:none;}
+    .tab-panel.active{display:block;animation:fadeUp .3s ease;}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+
+    /* TIMELINE */
+    .timeline{padding-left:1.8rem;border-left:2px solid var(--border);position:relative;}
+    .job{position:relative;margin-bottom:2rem;}
+    .job::before{content:'';position:absolute;left:-2.15rem;top:8px;width:12px;height:12px;border-radius:50%;background:var(--blue);border:3px solid var(--white);box-shadow:0 0 0 2px var(--blue);}
+    .job-card{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:1.5rem 1.75rem;transition:all .3s;}
+    .job-card:hover{box-shadow:0 6px 24px rgba(37,99,235,.1);border-color:#bfdbfe;transform:translateX(3px);}
+    .job-top{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:.4rem;margin-bottom:.2rem;}
+    .job-title{font-size:1rem;font-weight:700;color:var(--dark);}
+    .job-badge{background:var(--blue-light);color:var(--blue);font-size:.75rem;font-weight:700;padding:.2rem .7rem;border-radius:20px;white-space:nowrap;}
+    .job-co{font-size:.875rem;color:var(--blue);font-weight:600;margin-bottom:.15rem;}
+    .job-note{font-size:.775rem;color:var(--gray);font-style:italic;margin-bottom:.85rem;}
+    .job ul{list-style:none;}
+    .job ul li{font-size:.875rem;color:var(--body);padding-left:1rem;position:relative;line-height:1.6;margin-bottom:.3rem;}
+    .job ul li::before{content:'–';position:absolute;left:0;color:var(--blue);font-weight:700;}
+    .early-divider{display:flex;align-items:center;gap:.75rem;margin:1.5rem 0 1.25rem;font-size:.72rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--gray);font-weight:700;}
+    .early-divider::after{content:'';flex:1;height:1px;background:var(--border);}
+
+    /* ACHIEVEMENTS */
+    .ach-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1.1rem;}
+    .ach-card{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:1.5rem;position:relative;overflow:hidden;transition:all .3s;}
+    .ach-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--blue),var(--teal));}
+    .ach-card:hover{box-shadow:0 8px 28px rgba(37,99,235,.12);transform:translateY(-3px);border-color:#bfdbfe;}
+    .ach-num{font-family:'DM Serif Display',serif;font-size:2.2rem;color:var(--blue);line-height:1;margin-bottom:.4rem;}
+    .ach-text{font-size:.82rem;color:var(--gray);line-height:1.55;}
+
+    /* SKILL TAGS */
+    .comp-wrap{display:flex;flex-wrap:wrap;gap:.45rem;margin-bottom:2rem;}
+    .comp-tag{background:var(--blue-light);color:var(--navy);padding:.32rem .8rem;border-radius:6px;font-size:.8rem;font-weight:500;border:1px solid #bfdbfe;cursor:default;transition:all .2s;}
+    .comp-tag:hover{background:var(--blue);color:#fff;border-color:var(--blue);}
+    .skill-title{font-size:.78rem;text-transform:uppercase;letter-spacing:1px;color:var(--navy);font-weight:700;margin-bottom:.65rem;}
+
+    /* TECH GRID */
+    .tech-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1rem;}
+    .tech-card{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:1.1rem 1.25rem;transition:all .2s;}
+    .tech-card:hover{border-color:#bfdbfe;box-shadow:0 4px 16px rgba(37,99,235,.08);}
+    .tech-card h4{font-size:.72rem;text-transform:uppercase;letter-spacing:1px;color:var(--teal);font-weight:700;margin-bottom:.6rem;}
+    .tech-tags{display:flex;flex-wrap:wrap;gap:.35rem;}
+    .tt{background:var(--bg);color:var(--body);padding:.2rem .55rem;border-radius:5px;font-size:.78rem;border:1px solid var(--border);}
+
+    /* CERT CARDS */
+    .cert-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;}
+    .cert-card{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:1.1rem 1.25rem;display:flex;gap:.85rem;align-items:flex-start;transition:all .2s;}
+    .cert-card:hover{border-color:#bfdbfe;box-shadow:0 4px 16px rgba(37,99,235,.08);transform:translateY(-2px);}
+    .cert-ico{width:38px;height:38px;min-width:38px;border-radius:10px;background:var(--blue-light);display:flex;align-items:center;justify-content:center;font-size:1.1rem;}
+    .cert-card h4{font-size:.85rem;font-weight:700;color:var(--dark);margin-bottom:.15rem;line-height:1.3;}
+    .cert-card p{font-size:.76rem;color:var(--gray);}
+
+    /* AI SECTION */
+    .ai-intro{color:#94a3b8;margin-bottom:2rem;max-width:620px;font-size:.9rem;line-height:1.7;}
+    .ai-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:1.1rem;}
+    .ai-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:1.4rem;transition:all .25s;}
+    .ai-card:hover{background:rgba(255,255,255,.1);border-color:rgba(103,232,249,.3);transform:translateY(-2px);}
+    .ai-ico{width:40px;height:40px;border-radius:10px;background:rgba(103,232,249,.1);border:1px solid rgba(103,232,249,.2);display:flex;align-items:center;justify-content:center;font-size:1.1rem;margin-bottom:.85rem;}
+    .ai-card h3{font-size:.9rem;font-weight:700;color:#e2e8f0;margin-bottom:.4rem;}
+    .ai-card p{font-size:.82rem;color:#94a3b8;line-height:1.6;}
+    .ai-tags{display:flex;flex-wrap:wrap;gap:.3rem;margin-top:.7rem;}
+    .ai-tag{background:rgba(103,232,249,.1);color:#67e8f9;border:1px solid rgba(103,232,249,.2);padding:.15rem .55rem;border-radius:4px;font-size:.72rem;font-weight:500;}
+    .ai-footer{margin-top:2rem;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:1.1rem 1.4rem;font-size:.85rem;color:#94a3b8;line-height:1.8;}
+    .ai-footer strong{color:#67e8f9;}
+
+    /* FOOTER */
+    footer{background:#060e1a;color:#475569;text-align:center;padding:2.5rem;font-size:.82rem;border-top:1px solid rgba(255,255,255,.04);}
+    .footer-name{font-family:'DM Serif Display',serif;font-size:1.2rem;color:#fff;margin-bottom:.3rem;}
+    .footer-links{display:flex;justify-content:center;gap:1.5rem;margin:.75rem 0;}
+    .footer-links a{color:#67e8f9;text-decoration:none;font-size:.82rem;}
+    .footer-links a:hover{color:#fff;}
+
+    /* REVEAL */
+    .reveal{opacity:0;transform:translateY(20px);transition:opacity .55s ease,transform .55s ease;}
+    .reveal.in{opacity:1;transform:translateY(0);}
+
+    @media(max-width:900px){
+      .hero-inner{grid-template-columns:1fr;}
+      .hero-sidebar{display:none;}
+      .hero h1{font-size:2.4rem;}
+    }
+    @media(max-width:600px){
+      nav .nav-links{display:none;}
+      .hero h1{font-size:2rem;}
+      .section{padding:3rem 1.25rem;}
+      .hero{padding:6rem 1.25rem 3rem;}
+      .stat{padding:.4rem 1rem;}
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="logo" href="#">Steffi <span>Joseph</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#profile">Experience</a></li>
+    <li><a href="#profile">Skills</a></li>
+    <li><a href="#ai">AI Skills</a></li>
+    <li><a href="Resume.pdf" download="Steffi_Joseph_Resume.pdf" class="nav-cta">⬇ Resume</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="about">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-eyebrow"><span class="dot"></span> Open to Remote Opportunities</div>
+      <h1>Senior Instructional<br>Designer &amp; <em>L&D Strategist</em></h1>
+      <p class="hero-sub">12+ years building scalable learning ecosystems in healthcare SaaS and corporate environments. I design training that drives real outcomes — and use AI to do it faster.</p>
+      <div class="hero-contact">
+        <a href="mailto:steffiscorpion77@gmail.com">✉ steffiscorpion77@gmail.com</a>
+        <a href="https://linkedin.com/in/steffi-joseph-a09576146" target="_blank">💼 LinkedIn</a>
+        <a href="tel:+917506606201">📞 +91 7506606201</a>
+        <a href="#">📍 Maharashtra, India</a>
+      </div>
+      <div class="hero-btns">
+        <a href="mailto:steffiscorpion77@gmail.com" class="btn-primary">✉ Get In Touch</a>
+        <a href="Resume.pdf" download="Steffi_Joseph_Resume.pdf" class="btn-secondary">⬇ Download Resume</a>
+      </div>
+    </div>
+    <div class="hero-sidebar">
+      <div class="info-card">
+        <div class="label">Current Role</div>
+        <div class="value">Phreesia <span>· Healthcare SaaS</span></div>
+        <div class="sub">Senior Instructional Designer · Apr 2024 – Present</div>
+      </div>
+      <div class="info-row">
+        <div class="info-card">
+          <div class="label">Experience</div>
+          <div class="value">12<span>+ yrs</span></div>
+          <div class="sub">L&D &amp; ID</div>
+        </div>
+        <div class="info-card">
+          <div class="label">Courses Built</div>
+          <div class="value">60<span>+</span></div>
+          <div class="sub">eLearning</div>
+        </div>
+      </div>
+      <div class="info-row">
+        <div class="info-card">
+          <div class="label">KB Articles</div>
+          <div class="value">330<span>+</span></div>
+          <div class="sub">Governed</div>
+        </div>
+        <div class="info-card">
+          <div class="label">AI Impact</div>
+          <div class="value">40<span>%+</span></div>
+          <div class="sub">Audit effort saved</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stat"><div class="num">12<em>+</em></div><div class="lbl">Years Experience</div></div>
+  <div class="stat"><div class="num">60<em>+</em></div><div class="lbl">eLearning Courses</div></div>
+  <div class="stat"><div class="num">50<em>+</em></div><div class="lbl">Storyboards</div></div>
+  <div class="stat"><div class="num">330<em>+</em></div><div class="lbl">KB Articles</div></div>
+  <div class="stat"><div class="num">100<em>+</em></div><div class="lbl">Video Assets</div></div>
+  <div class="stat"><div class="num">40<em>%+</em></div><div class="lbl">AI Audit Savings</div></div>
+</div>
+
+<!-- PROFILE SECTION -->
+<section class="section alt" id="profile">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="section-label">Background</div>
+      <h2 class="section-heading">Professional Profile</h2>
+    </div>
+
+    <div class="tab-row">
+      <button class="tab-btn active" onclick="switchTab('exp',this)">💼 Experience</button>
+      <button class="tab-btn" onclick="switchTab('ach',this)">🏆 Achievements</button>
+      <button class="tab-btn" onclick="switchTab('skills',this)">🧠 Skills</button>
+      <button class="tab-btn" onclick="switchTab('certs',this)">🎓 Education &amp; Certs</button>
+    </div>
+
+    <!-- EXPERIENCE -->
+    <div class="tab-panel active" id="tab-exp">
+      <div class="timeline">
+
+        <div class="job reveal">
+          <div class="job-card">
+            <div class="job-top">
+              <span class="job-title">Senior Instructional Designer</span>
+              <span class="job-badge">Apr 2024 – Present</span>
+            </div>
+            <div class="job-co">Phreesia · Healthcare SaaS</div>
+            <div class="job-note">Contracted via Rayden Interactive · Remote</div>
+            <ul>
+              <li>Directed a cross-functional team to manage and deliver 100+ video assets, overseeing LOE tracking and end-to-end delivery timelines</li>
+              <li>Owned learning strategy, content governance, and training needs analysis for a 330+ article knowledge base</li>
+              <li>Designed and piloted an AI-driven automation workflow using Claude and Confluence API, reducing manual content audit effort by 40%+</li>
+              <li>Developed blended learning programs — eLearning, microlearning, ILT/vILT — across Support, Product, and Enablement functions</li>
+              <li>Spearheaded Pendo pilot: WCAG accessibility review, style guide development, content governance, and in-app guidance use cases</li>
+              <li>Collaborated with Product Managers on beta documentation and go-to-market training readiness</li>
+              <li>Managed content migration from Skilljar to Vimeo, standardizing procedures and authoring Confluence documentation</li>
+              <li>Built and maintained a master LMS content inventory as the single source of truth for asset status and prioritization</li>
+              <li>Oversaw project intake and delivery timelines using Jira and Monday.com, maintaining SLA adherence</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="job reveal">
+          <div class="job-card">
+            <div class="job-top">
+              <span class="job-title">Senior Instructional Designer</span>
+              <span class="job-badge">Nov 2021 – Apr 2024</span>
+            </div>
+            <div class="job-co">Rayden Interactive</div>
+            <ul>
+              <li>Led design and development of 60+ eLearning courses and 50+ storyboards — achieving 30%+ improvement in learner engagement</li>
+              <li>Designed accessible, scenario-based, and microlearning solutions aligned with WCAG accessibility standards</li>
+              <li>Developed two interactive eLearning modules for Phreesia's internal teams (PAM Project, 2023)</li>
+              <li>Conducted training needs analysis and collaborated with SMEs to design targeted learning solutions</li>
+              <li>Applied Kirkpatrick evaluation model to measure learning ROI and drive course improvement</li>
+              <li>Mentored instructional designers and established organization-wide design standards</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="job reveal">
+          <div class="job-card">
+            <div class="job-top">
+              <span class="job-title">Instructional Designer &amp; Corporate Trainer</span>
+              <span class="job-badge">Jul 2017 – Dec 2021</span>
+            </div>
+            <div class="job-co">HERE Technologies Pvt. Ltd. · Airoli, Maharashtra</div>
+            <ul>
+              <li>Designed and delivered blended learning including eLearning, microlearning, video training, and ILT/vILT sessions</li>
+              <li>Applied ADDIE framework across compliance, product knowledge, and leadership development programs</li>
+              <li>Collaborated with SMEs to align training needs analysis with business goals</li>
+              <li>Facilitated leadership development programs and delivered internal tool training</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="early-divider reveal">Early Career</div>
+
+        <div class="job reveal">
+          <div class="job-card">
+            <div class="job-top">
+              <span class="job-title">E-Commerce Executive</span>
+              <span class="job-badge">Mar 2017 – May 2017</span>
+            </div>
+            <div class="job-co">Commerce Pundit · Ghansoli, Maharashtra</div>
+            <ul>
+              <li>Managed product listings, inventory, and sales reporting on Walmart's e-commerce platform</li>
+              <li>Coordinated with vendors to manage order fulfilment and ensure timely deliveries</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="job reveal">
+          <div class="job-card">
+            <div class="job-top">
+              <span class="job-title">PPC &amp; Digital Marketing Specialist</span>
+              <span class="job-badge">Apr 2016 – Mar 2017</span>
+            </div>
+            <div class="job-co">eTouch Pvt. Ltd. · Thane, Maharashtra</div>
+            <ul>
+              <li>Managed and optimized Google Ads PPC campaigns including keyword research and YouTube ad creation</li>
+              <li>Trained new team members on paid search best practices</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ACHIEVEMENTS -->
+    <div class="tab-panel" id="tab-ach">
+      <div class="ach-grid">
+        <div class="ach-card reveal"><div class="ach-num">40%+</div><div class="ach-text">Reduction in manual content audit effort via AI-driven automation using Claude and Confluence API</div></div>
+        <div class="ach-card reveal"><div class="ach-num">30%+</div><div class="ach-text">Improvement in learner engagement across 60+ eLearning courses developed</div></div>
+        <div class="ach-card reveal"><div class="ach-num">330+</div><div class="ach-text">KB articles governed and aligned with product release cycles in healthcare SaaS</div></div>
+        <div class="ach-card reveal"><div class="ach-num">100+</div><div class="ach-text">Video assets delivered end-to-end with cross-functional team management</div></div>
+        <div class="ach-card reveal"><div class="ach-num">60+</div><div class="ach-text">eLearning courses and 50+ storyboards developed across multiple clients</div></div>
+        <div class="ach-card reveal"><div class="ach-num">🏅</div><div class="ach-text">Innovation Luminary Award — Rayden Interactive (2023–2024)</div></div>
+      </div>
+    </div>
+
+    <!-- SKILLS -->
+    <div class="tab-panel" id="tab-skills">
+      <div class="skill-title reveal">Core Competencies</div>
+      <div class="comp-wrap reveal">
+        <span class="comp-tag">Instructional Design (ADDIE, SAM)</span>
+        <span class="comp-tag">Learning Experience Design (LXD)</span>
+        <span class="comp-tag">eLearning Development</span>
+        <span class="comp-tag">Microlearning</span>
+        <span class="comp-tag">Mobile Learning</span>
+        <span class="comp-tag">ILT &amp; vILT Facilitation</span>
+        <span class="comp-tag">Curriculum Development</span>
+        <span class="comp-tag">Training Needs Analysis</span>
+        <span class="comp-tag">Learning Objectives Design</span>
+        <span class="comp-tag">Storyboarding</span>
+        <span class="comp-tag">Rapid Authoring</span>
+        <span class="comp-tag">Blended Learning</span>
+        <span class="comp-tag">Customer Education</span>
+        <span class="comp-tag">Product Enablement</span>
+        <span class="comp-tag">Go-to-Market Enablement</span>
+        <span class="comp-tag">Content Governance</span>
+        <span class="comp-tag">Knowledge Management</span>
+        <span class="comp-tag">Content Strategy</span>
+        <span class="comp-tag">LMS Administration</span>
+        <span class="comp-tag">Learning Analytics</span>
+        <span class="comp-tag">Kirkpatrick Evaluation</span>
+        <span class="comp-tag">WCAG Accessibility</span>
+        <span class="comp-tag">Adult Learning Principles</span>
+        <span class="comp-tag">New User Onboarding</span>
+        <span class="comp-tag">Stakeholder Management</span>
+        <span class="comp-tag">Project Management</span>
+        <span class="comp-tag">Change Management</span>
+        <span class="comp-tag">Team Leadership</span>
+        <span class="comp-tag">Performance Consulting</span>
+        <span class="comp-tag">SCORM / xAPI</span>
+        <span class="comp-tag">AI-Driven Automation</span>
+        <span class="comp-tag">Learning ROI</span>
+      </div>
+      <div class="skill-title reveal">Technical Skills</div>
+      <div class="tech-grid reveal">
+        <div class="tech-card"><h4>eLearning &amp; Content</h4><div class="tech-tags"><span class="tt">Articulate Storyline</span><span class="tt">Rise 360</span><span class="tt">Camtasia</span><span class="tt">Vyond</span><span class="tt">Powtoon</span><span class="tt">Premiere Pro</span><span class="tt">After Effects</span><span class="tt">Adobe Animate</span><span class="tt">SnagIt</span></div></div>
+        <div class="tech-card"><h4>LMS Platforms</h4><div class="tech-tags"><span class="tt">Skilljar</span><span class="tt">LearnUpon</span><span class="tt">Cornerstone</span><span class="tt">Workday</span></div></div>
+        <div class="tech-card"><h4>Knowledge &amp; Project</h4><div class="tech-tags"><span class="tt">Confluence</span><span class="tt">Jira</span><span class="tt">Monday.com</span><span class="tt">Scribe</span><span class="tt">PowerPoint</span></div></div>
+        <div class="tech-card"><h4>In-App Guidance</h4><div class="tech-tags"><span class="tt">Pendo</span></div></div>
+        <div class="tech-card"><h4>AI &amp; Automation</h4><div class="tech-tags"><span class="tt">Claude (Anthropic)</span><span class="tt">ChatGPT</span><span class="tt">Confluence API</span></div></div>
+      </div>
+    </div>
+
+    <!-- CERTS -->
+    <div class="tab-panel" id="tab-certs">
+      <div class="cert-grid">
+        <div class="cert-card reveal"><div class="cert-ico">🎓</div><div><h4>Bachelor of Arts in Literature</h4><p>University of Mumbai · GPA: 70%</p></div></div>
+        <div class="cert-card reveal"><div class="cert-ico">♿</div><div><h4>Designing Accessible Learning Content (DALC)</h4><p>eLaHub Ltd · March 2024</p></div></div>
+        <div class="cert-card reveal"><div class="cert-ico">🎬</div><div><h4>Camtasia Certified Professional</h4><p>TechSmith · 2024–2026</p></div></div>
+        <div class="cert-card reveal"><div class="cert-ico">🎮</div><div><h4>Gamification for Employee Productivity</h4><p>Pete Genkins · June 2021</p></div></div>
+        <div class="cert-card reveal"><div class="cert-ico">🏅</div><div><h4>Innovation Luminary Award</h4><p>Rayden Interactive · 2023–2024</p></div></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- AI SECTION -->
+<section class="section dark" id="ai">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="section-label inv">What Sets Me Apart</div>
+      <h2 class="section-heading inv">AI Skills &amp; How I Use Them</h2>
+      <p class="ai-intro">AI is not just a skill on my resume — it is embedded in my daily L&D workflows. Here is what I actually do with it.</p>
+    </div>
+    <div class="ai-grid">
+      <div class="ai-card reveal">
+        <div class="ai-ico">⚙️</div>
+        <h3>Content Audit Automation</h3>
+        <p>Built a workflow using Claude and Confluence API to cross-reference release notes against 330+ KB articles — flagging outdated content and generating a prioritized rewrite queue. Saved 40%+ manual effort.</p>
+        <div class="ai-tags"><span class="ai-tag">Claude API</span><span class="ai-tag">Confluence API</span><span class="ai-tag">Automation</span></div>
+      </div>
+      <div class="ai-card reveal">
+        <div class="ai-ico">✍️</div>
+        <h3>Script &amp; Storyboard Drafting</h3>
+        <p>Use ChatGPT and Claude to generate first-draft video scripts and storyboard outlines, then refine for UI terminology and learning objectives — cutting drafting time significantly.</p>
+        <div class="ai-tags"><span class="ai-tag">ChatGPT</span><span class="ai-tag">Claude</span><span class="ai-tag">Rapid Authoring</span></div>
+      </div>
+      <div class="ai-card reveal">
+        <div class="ai-ico">📋</div>
+        <h3>KB Article Quality Reviews</h3>
+        <p>Prompt Claude to review KB articles against style guides — checking for passive voice, incorrect UI labels, missing steps, and structural gaps before publishing.</p>
+        <div class="ai-tags"><span class="ai-tag">Content Quality</span><span class="ai-tag">Style Governance</span></div>
+      </div>
+      <div class="ai-card reveal">
+        <div class="ai-ico">🏗️</div>
+        <h3>In-App Guidance (Pendo)</h3>
+        <p>Use AI to draft and refine Pendo guide copy — ensuring consistency with product UI terminology, WCAG standards, and tone of voice across all in-app learning experiences.</p>
+        <div class="ai-tags"><span class="ai-tag">Pendo</span><span class="ai-tag">WCAG</span><span class="ai-tag">In-App Learning</span></div>
+      </div>
+      <div class="ai-card reveal">
+        <div class="ai-ico">📊</div>
+        <h3>Learning Analytics Interpretation</h3>
+        <p>Use AI to synthesize LMS and Pendo analytics into plain-language stakeholder reports — translating engagement data into learning strategy decisions.</p>
+        <div class="ai-tags"><span class="ai-tag">Learning Analytics</span><span class="ai-tag">Kirkpatrick</span><span class="ai-tag">Learning ROI</span></div>
+      </div>
+      <div class="ai-card reveal">
+        <div class="ai-ico">🗂️</div>
+        <h3>Training Backlog Prioritization</h3>
+        <p>Combine AI analysis with traffic and support ticket data to score and rank training content for revision — ensuring highest-impact content is always prioritized first.</p>
+        <div class="ai-tags"><span class="ai-tag">Content Strategy</span><span class="ai-tag">Data-Driven L&D</span></div>
+      </div>
+    </div>
+    <div class="ai-footer reveal">
+      <strong>Tools I use regularly:</strong> &nbsp;
+      <strong>Claude (Anthropic)</strong> — KB automation, content workflows, Confluence API integration &nbsp;·&nbsp;
+      <strong>ChatGPT</strong> — script drafting, ideation, rapid content generation &nbsp;·&nbsp;
+      <strong>Confluence API</strong> — programmatic KB management and release note cross-referencing
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-name">Steffi Joseph</div>
+  <p>Senior Instructional Designer · Maharashtra, India</p>
+  <div class="footer-links">
+    <a href="mailto:steffiscorpion77@gmail.com">Email</a>
+    <a href="https://linkedin.com/in/steffi-joseph-a09576146" target="_blank">LinkedIn</a>
+    <a href="tel:+917506606201">+91 7506606201</a>
+    <a href="Resume.pdf" download="Steffi_Joseph_Resume.pdf">Download Resume</a>
+  </div>
+  <p style="font-size:.73rem;margin-top:.3rem;">© 2026 Steffi Joseph. All rights reserved.</p>
+</footer>
+
+<script>
+  // Tab switching
+  function switchTab(name, btn) {
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('tab-' + name).classList.add('active');
+    btn.classList.add('active');
+  }
+
+  // Scroll reveal
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) setTimeout(() => e.target.classList.add('in'), i * 50);
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
